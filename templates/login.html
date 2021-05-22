@@ -1,0 +1,38 @@
+{% extends "extend.html" %}
+
+{% block content %}
+
+<form id="theForm" >
+    <p>
+        <div class="row">
+            <label for="Fullname" style="font-family: Arial, Helvetica, sans-serif;"> Full Name:- </label>
+            <input class="input" type="text" placeholder="Enter the Full Name">
+            <br><br><br>
+        </div>
+        <div class="row">
+            <label for="email" style="font-family: Arial, Helvetica, sans-serif;">Email Id:-</label>
+            <input class="input" type="email" placeholder="Enter valid email address">
+            <br><br><br>
+        </div>
+        <div class="row">
+            <label for="password" style="font-family: Arial, Helvetica, sans-serif;">Password:-</label>
+            <input class="input" type="password" placeholder="Enter your password">
+            <br><br><br>
+        </div>
+        <div>
+            <button class="buttons" for="Login" style="font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;">
+                Login
+            </button>
+        </div>
+        <br>
+        <a href="register.html" style="font-family: Arial, Helvetica, sans-serif; 
+            margin-left: 195px; font-size: 15px;
+            color: rgb(14, 218, 116); 
+            text-decoration: none;"> 
+            Forgot password?
+        </a>
+    </p>
+</form>
+
+{% endblock %}

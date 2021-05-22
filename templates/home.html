@@ -1,0 +1,46 @@
+{% extends "extend.html" %}
+
+{% block content %}
+
+<video id="video" width="600" height="500" autoplay="true"></video>
+<canvas hidden="true" id="canvas" width="600" height="500"></canvas>
+<button id="snap"> POST </button>
+<img id = "image" src= "">
+<h3 id="p" style="color: white; margin-left: 50%;"></h3>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+
+<script>
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const button = document.getElementById("snap");
+    var context = canvas.getContext('2d');
+    var result = ""
+    const constraints = {audio:false, video:{width:600,height:500}};
+
+    button.addEventListener("click", () => {
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        $.post("http://127.0.0.1:5000/api",
+            {
+                label: "video capture",
+                content: canvas.toDataURL("image/png"),
+                // success: function(result) {
+                //     document.getElementById('image').src = 'data:image/png,' + result;
+                // }
+            },
+            (data, status) => {
+                console.log(data);
+                document.getElementById("image").src ="../";
+                document.getElementById("image").src += data;
+                document.getElementById("p").innerHTML = data.slice(14,data.length- 4);
+            }
+        );
+    });
+
+    navigator.mediaDevices.getUserMedia(constraints).then((mediaStream)=>{
+        video.srcObject = mediaStream;
+    });
+</script>
+
+{% endblock %}

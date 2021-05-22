@@ -1,0 +1,34 @@
+{% extends "extend.html" %} {% block content %}
+<div class="gridbar">
+  <div
+    class="contactbar"
+    style="text-align: center; padding: 10px; color: white"
+  >
+    NAME : Surendra Pandey <br />
+    Contact :123
+  </div>
+  <br />
+  <div
+    class="contactbar"
+    style="text-align: center; padding: 10px; color: white"
+  >
+    NAME : Surendra Pandey <br />
+    Contact :123
+    <br />
+    <span class="fa fa-star" onclick="function1()"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+  </div>
+  <div class="contactbar"></div>
+  <div class="contactbar"></div>
+  <div class="contactbar"></div>
+  <script>
+    function function1() {
+      document.getElementsByClassName("checked").style.color = "orange";
+    }
+  </script>
+</div>
+
+{% endblock %}
